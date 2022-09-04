@@ -28,18 +28,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal.h"
-#include "stm32u5xx_ll_icache.h"
-#include "stm32u5xx_ll_pwr.h"
-#include "stm32u5xx_ll_crs.h"
-#include "stm32u5xx_ll_rcc.h"
-#include "stm32u5xx_ll_bus.h"
-#include "stm32u5xx_ll_system.h"
-#include "stm32u5xx_ll_exti.h"
-#include "stm32u5xx_ll_cortex.h"
-#include "stm32u5xx_ll_utils.h"
-#include "stm32u5xx_ll_dma.h"
-#include "stm32u5xx_ll_gpio.h"
-#include "stm32u5xx_ll_lpgpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -69,15 +57,15 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define USER_BUTTON_Pin LL_GPIO_PIN_13
+#define USER_BUTTON_Pin GPIO_PIN_13
 #define USER_BUTTON_GPIO_Port GPIOC
-#define LED_RED_Pin LL_GPIO_PIN_2
+#define LED_RED_Pin GPIO_PIN_2
 #define LED_RED_GPIO_Port GPIOG
-#define LED_GREEN_Pin LL_GPIO_PIN_7
+#define LED_GREEN_Pin GPIO_PIN_7
 #define LED_GREEN_GPIO_Port GPIOC
-#define USART1_TX_Pin LL_GPIO_PIN_9
+#define USART1_TX_Pin GPIO_PIN_9
 #define USART1_TX_GPIO_Port GPIOA
-#define LED_BLUE_Pin LL_GPIO_PIN_7
+#define LED_BLUE_Pin GPIO_PIN_7
 #define LED_BLUE_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 

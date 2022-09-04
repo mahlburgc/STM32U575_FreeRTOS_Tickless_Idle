@@ -1,0 +1,4 @@
+Reference Manual:
+https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf
+Datasheet:
+https://www.st.com/resource/en/datasheet/stm32u575ag.pdf
