@@ -71,28 +71,12 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define USER_BUTTON_Pin LL_GPIO_PIN_13
 #define USER_BUTTON_GPIO_Port GPIOC
-#define VBUS_SENSE_Pin LL_GPIO_PIN_2
-#define VBUS_SENSE_GPIO_Port GPIOC
-#define UCPD_FLT_Pin LL_GPIO_PIN_14
-#define UCPD_FLT_GPIO_Port GPIOB
-#define UCPD1_CC2_Pin LL_GPIO_PIN_15
-#define UCPD1_CC2_GPIO_Port GPIOB
 #define LED_RED_Pin LL_GPIO_PIN_2
 #define LED_RED_GPIO_Port GPIOG
 #define LED_GREEN_Pin LL_GPIO_PIN_7
 #define LED_GREEN_GPIO_Port GPIOC
 #define USART1_TX_Pin LL_GPIO_PIN_9
 #define USART1_TX_GPIO_Port GPIOA
-#define USART1_RX_Pin LL_GPIO_PIN_10
-#define USART1_RX_GPIO_Port GPIOA
-#define USB_OTG_FS_DM_Pin LL_GPIO_PIN_11
-#define USB_OTG_FS_DM_GPIO_Port GPIOA
-#define USB_OTG_FS_DP_Pin LL_GPIO_PIN_12
-#define USB_OTG_FS_DP_GPIO_Port GPIOA
-#define UCPD1_CC1_Pin LL_GPIO_PIN_15
-#define UCPD1_CC1_GPIO_Port GPIOA
-#define UCPD_DBn_Pin LL_GPIO_PIN_5
-#define UCPD_DBn_GPIO_Port GPIOB
 #define LED_BLUE_Pin LL_GPIO_PIN_7
 #define LED_BLUE_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
