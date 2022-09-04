@@ -105,9 +105,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  usart1_transmit("Startup!\r\n");
-  usart1_transmit("Startup!\r\n");
-  usart1_transmit("Test warum wird das erste Zeichen verschluckt?\r\n");
+  uint8_t buf[] = "Test transmitted with HAL!\r\n";
+//  usart1_transmit("Startup!\r\n");
+//  usart1_transmit("Startup!\r\n");
+//  usart1_transmit("Test warum wird das erste Zeichen verschluckt?\r\n");
+  HAL_UART_Transmit(&huart1, buf, sizeof(buf), 100);
+  HAL_UART_Transmit(&huart1, buf, sizeof(buf), 100);
+  HAL_UART_Transmit(&huart1, buf, sizeof(buf), 100);
 
   /* Start the tasks and timer running. */
   vTaskStartScheduler();
