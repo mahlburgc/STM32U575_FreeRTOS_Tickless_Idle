@@ -109,9 +109,9 @@ int main(void)
 //  usart1_transmit("Startup!\r\n");
 //  usart1_transmit("Startup!\r\n");
 //  usart1_transmit("Test warum wird das erste Zeichen verschluckt?\r\n");
-  HAL_UART_Transmit(&huart1, buf, sizeof(buf), 100);
-  HAL_UART_Transmit(&huart1, buf, sizeof(buf), 100);
-  HAL_UART_Transmit(&huart1, buf, sizeof(buf), 100);
+  HAL_UART_Transmit(&huart1, buf, sizeof(buf) - 1, 100);
+  HAL_UART_Transmit(&huart1, buf, sizeof(buf) - 1, 100);
+  HAL_UART_Transmit(&huart1, buf, sizeof(buf) - 1, 100);
 
   /* Start the tasks and timer running. */
   vTaskStartScheduler();
