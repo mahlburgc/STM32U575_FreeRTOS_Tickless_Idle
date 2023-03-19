@@ -10,7 +10,6 @@
 void usart1_transmit(char* msg)
 {
     LL_USART_EnableDirectionTx(USART1);
-    LL_USART_EnableIT_TC(USART1);
     LL_USART_ClearFlag_TC(USART1);
 
     while(*msg != 0)

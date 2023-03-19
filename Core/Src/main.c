@@ -24,6 +24,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "usart1.h"
+#include "ledTasks.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,9 +56,7 @@ static void MX_GPIO_Init(void);
 static void MX_ICACHE_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-static void ledBlueTask(void* argument);
-static void ledGreenTask(void* argument);
-static void ledRedTask(void* argument);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,20 +97,13 @@ int main(void)
   MX_ICACHE_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  xTaskCreate(ledBlueTask, "ledBlueTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
-  xTaskCreate(ledGreenTask, "ledGreenTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
-  xTaskCreate(ledRedTask, "redGreenTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
+  LED_TASK_init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t buf[] = "Test transmitted with HAL!\r\n";
-//  usart1_transmit("Startup!\r\n");
-//  usart1_transmit("Startup!\r\n");
-//  usart1_transmit("Test warum wird das erste Zeichen verschluckt?\r\n");
-  HAL_UART_Transmit(&huart1, buf, sizeof(buf) - 1, 100);
-  HAL_UART_Transmit(&huart1, buf, sizeof(buf) - 1, 100);
-  HAL_UART_Transmit(&huart1, buf, sizeof(buf) - 1, 100);
+  usart1_transmit("Startup!\r\n");
 
   /* Start the tasks and timer running. */
   vTaskStartScheduler();
@@ -329,33 +321,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-static void ledGreenTask(void* argument)
-{
-    while(1)
-    {
-        HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
-        vTaskDelay(100/portTICK_PERIOD_MS);
-    }
-}
-
-static void ledBlueTask(void* argument)
-{
-    while(1)
-    {
-        HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
-        vTaskDelay(80/portTICK_PERIOD_MS);
-    }
-}
-
-static void ledRedTask(void* argument)
-{
-    while(1)
-    {
-        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-        vTaskDelay(80/portTICK_PERIOD_MS);
-    }
-}
-
 /*
   vApplicationGetIdleTaskMemory gets called when configSUPPORT_STATIC_ALLOCATION
   equals to 1 and is required for static memory allocation support.
