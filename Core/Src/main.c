@@ -87,6 +87,7 @@ int main(void)
   /* Configure the System Power */
   SystemPower_Config();
 
+  vUlpInit();
   /* USER CODE BEGIN SysInit */
   /* USER CODE END SysInit */
 

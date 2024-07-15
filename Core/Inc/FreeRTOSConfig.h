@@ -158,6 +158,9 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 header file. */
 /* USER CODE BEGIN 1 */
 #define configASSERT( x ) if ((x) == 0) {taskDISABLE_INTERRUPTS(); for( ;; );}
+
+#define configUSE_TICKLESS_IDLE    2
+#define configTICK_USES_LSI
 /* USER CODE END 1 */
 
 /* USER CODE BEGIN Defines */
