@@ -22,6 +22,7 @@ static void ledGreenTask(void* argument)
 
     while(1)
     {
+        CLI_print("LED Green toggled.\r\n");
         HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
         vTaskDelay(1000/portTICK_PERIOD_MS);
     }
