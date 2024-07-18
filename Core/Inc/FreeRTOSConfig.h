@@ -45,6 +45,7 @@
 
 /* USER CODE BEGIN Includes */
 /* Section where include file can be added */
+#include "ulp.h"
 /* USER CODE END Includes */
 
 /* Ensure definitions are only used by the compiler, and not by the assembler. */
@@ -160,7 +161,31 @@ header file. */
 #define configASSERT( x ) if ((x) == 0) {taskDISABLE_INTERRUPTS(); for( ;; );}
 
 #define configUSE_TICKLESS_IDLE    2
+
+// Integrate lptimTick.c -- Start of Block
+//
+#if ( configUSE_TICKLESS_IDLE == 2 )
+
+//      The divider value can be 1, 2, 4, or 8 in our system because we have a 32768 Hz reference clock and
+// a 1000 Hz tick.  The final divided clock rate must be >3.5x the desired tick rate.
+//
+#define configLPTIM_DIVIDER 1
+
 #define configTICK_USES_LSI
+
+//      Be sure the FreeRTOS definition of SysTick_Handler() is not actually used as the Systick handler.
+//
+#define SysTick_Handler Unused_SysTick_Handler
+
+//      Without pre- and post-sleep processing, lptimTick.c uses only basic sleep mode during tickless idle.
+// To utilize the stop modes and their dramatic reduction in power consumption, we employ an ultra-low-power
+// driver to handle the pre- and post-sleep hooks.
+//
+#define configPRE_SLEEP_PROCESSING(x)   vUlpPreSleepProcessing()
+#define configPOST_SLEEP_PROCESSING(x)  vUlpPostSleepProcessing()
+
+#endif // configUSE_TICKLESS_IDLE == 2
+
 /* USER CODE END 1 */
 
 /* USER CODE BEGIN Defines */

@@ -59,7 +59,6 @@ extern TIM_HandleTypeDef htim17;
 
 /* USER CODE BEGIN EV */
 
-extern void FreeRTOS_SysTick_Handler(void);
 /* USER CODE END EV */
 
 /******************************************************************************/

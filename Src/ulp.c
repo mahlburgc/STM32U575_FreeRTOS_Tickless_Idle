@@ -150,6 +150,8 @@ void vUlpPreSleepProcessing()
 
    if (useDeepSleep)
    {
+      HAL_SuspendTick();
+
       rccCrSave = RCC->CR;
       rccCfgrSave = RCC->CFGR1;
       #ifdef SUPPORT_MSI_AT_48MHZ
