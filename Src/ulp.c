@@ -5,6 +5,8 @@
 #include "task.h"
 #include "ulp.h"
 
+#include "main.h"
+
 // ULP Configuration Options
 //
 // #define SUPPORT_VREG_RANGES_1_THROUGH_3
@@ -150,6 +152,8 @@ void vUlpPreSleepProcessing()
 
    if (useDeepSleep)
    {
+      HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_RESET);
+
       HAL_SuspendTick();
 
       rccCrSave = RCC->CR;
@@ -202,6 +206,8 @@ void vUlpPostSleepProcessing()
       RCC->CFGR1 = rccCfgrSave;
 
       SCB->SCR &= ~SCB_SCR_SLEEPDEEP_Msk;
+
+      HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_SET);
 
       //      This application bypasses the RTC shadow registers, so we don't need to clear the sync flag for
       // those registers.  They are always out of sync when coming out of deep sleep.

@@ -36,7 +36,6 @@ static void ledBlueTask(void* argument)
 
     while(1)
     {
-        HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
         vTaskDelay(500/portTICK_PERIOD_MS);
     }
 
@@ -58,7 +57,7 @@ static void ledRedTask(void* argument)
 
 void LED_taskInit(void)
 {
-    xTaskCreate(ledBlueTask, "ledBlueTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
+//    xTaskCreate(ledBlueTask, "ledBlueTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
     xTaskCreate(ledGreenTask, "ledGreenTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
-    xTaskCreate(ledRedTask, "redGreenTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
+//    xTaskCreate(ledRedTask, "redGreenTask", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
 }

@@ -1,4 +1,8 @@
-Reference Manual:
+MCU Reference Manual:
 https://www.st.com/resource/en/reference_manual/rm0456-stm32u575585-armbased-32bit-mcus-stmicroelectronics.pdf
-Datasheet:
+MCU Datasheet:
 https://www.st.com/resource/en/datasheet/stm32u575ag.pdf
+STM32U5 Nucleo-144 board User Manual (UM2861):
+https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf
+Power Supply Measure Board Manual (UM2243):
+https://www.st.com/resource/en/user_manual/um2243-stm32-nucleo-expansion-board-for-power-consumption-measurement-stmicroelectronics.pdf
