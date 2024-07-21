@@ -171,8 +171,6 @@ header file. */
 //
 #define configLPTIM_DIVIDER 1
 
-#define configTICK_USES_LSI
-
 //      Be sure the FreeRTOS definition of SysTick_Handler() is not actually used as the Systick handler.
 //
 #define SysTick_Handler Unused_SysTick_Handler
