@@ -2,7 +2,7 @@
  * usart1.h
  *
  *  Created on: Sep 4, 2022
- *      Author: Christian
+ *      Author: Christian Mahlburg
  */
 
 #ifndef INC_USART1_H_

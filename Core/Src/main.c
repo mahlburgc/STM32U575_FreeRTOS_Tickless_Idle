@@ -93,11 +93,6 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   vUlpInit();
-  LL_RCC_LSI_Enable();
-  while(LL_RCC_LSI_IsReady() != 1)
-  {
-      /* Wait till LSI is ready */
-  }
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -108,12 +103,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   LED_taskInit();
   CLI_taskInit();
-
-  LL_RCC_LSI_Enable();
-  while(LL_RCC_LSI_IsReady() != 1)
-  {
-      /* Wait till LSI is ready */
-  }
   /* USER CODE END 2 */
 
   /* Infinite loop */

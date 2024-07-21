@@ -2,7 +2,7 @@
  * cli.c
  *
  *  Created on: Mar 19, 2023
- *      Author: Christian
+ *      Author: Christian Mahlburg
  */
 
 #include "usart1.h"
@@ -34,6 +34,9 @@ uint8_t ucQueueStorageArea[CLI_QUEUE_LENGTH * CLI_ITEM_SIZE];
 
 static void CLI_task(void* argument);
 
+/**
+ * @brief Task to send outgoing CLI messages to uart.
+ */
 static void CLI_task(void* argument)
 {
     CLI_QueueItem_t receivedQueueItem;
@@ -53,6 +56,10 @@ static void CLI_task(void* argument)
     vTaskDelete(NULL);
 }
 
+/**
+ * @brief Public API to send messages to the CLI.
+ *        A queue mechanism is used. CLI messages are printed to terminal via UART in CLI task.
+ */
 bool CLI_print(const char* msg)
 {
     assert_param(msg != NULL);
@@ -82,6 +89,10 @@ bool CLI_print(const char* msg)
     return status;
 }
 
+/**
+ * @brief Initialize the CLI task.
+ *        Should be called once on startup.
+ */
 void CLI_taskInit(void)
 {
     xTaskCreate(CLI_task, "CLI_task", 256, NULL, tskIDLE_PRIORITY + 5, NULL);
