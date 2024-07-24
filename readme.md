@@ -44,13 +44,13 @@ remove JP2 to avoid STM32 MCU reset from the STLINK-V3E part.
 ### Measure board consumption (MCU + Peripherals)
 To measure the complete power consumption of the NULCEO-U575ZI-Q board (MCU + Peripherals), the board is powered via 3.3V pin (SB1 removed, JP2 open). 
 
-![](docs/meas_led_toggle.png)
+![](docs/Tickless_Idle_Measurement_with_SB0_open_and_3V3_supply.png)
 
 
 ### Measure MCU consumption
 To measure only the MCU consumption of the NULCEO-U575ZI-Q board, the board is powered via JP5 (IDD) pin 2 (JP5 open, SB1 closed, JP2 closed).
 
-![](docs/meas_mcu_only.png)
+![](docs/Tickless_Idle_Measurement_on_IDD_PIN2.png)
 
 
 ### Scheduler precision
